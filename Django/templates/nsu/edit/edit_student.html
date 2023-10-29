@@ -1,0 +1,40 @@
+{% extends 'nsu/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Изменить студента</h1>
+
+    <div class="container mt-3">
+    <form id="edit-form" method="post">
+        {% csrf_token %}
+        {{ form.name }}<br>
+        {{ form.birthday }}<br>
+        {{ form.year }}<br>
+        <div class="form-group">
+            <label for="{{ form.university.id_for_label }}">Университет:</label>
+            {{ form.university }}
+        </div><br>
+
+        <button type="submit" class="btn btn-success">Изменить студента</button>
+    </form><br>
+    </div>
+
+    <script>
+    $(function() {
+    $('input[name="birthday"]').datepicker({
+        format: 'dd.mm.yyyy',
+        autoclose: true,
+        orientation: 'bottom'
+    });
+    });
+    </script>
+
+    <script>
+      $(function() {
+        $("#id_university").selectmenu();
+      });
+    </script>
+{% endblock %}

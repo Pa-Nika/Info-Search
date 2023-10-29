@@ -1,0 +1,30 @@
+{% extends 'nsu/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Добавить университет</h1>
+
+    <div class="container mt-3">
+    <form id="edit-form" method="post">
+        {% csrf_token %}
+        {{ form.full_title }}<br>
+        {{ form.small_title }}<br>
+        {{ form.date }}<br>
+
+        <button type="submit" class="btn btn-success">Добавить университет</button>
+    </form><br>
+    </div>
+
+    <script>
+    $(function() {
+    $('input[name="date"]').datepicker({
+        format: 'dd.mm.yyyy',
+        autoclose: true,
+        orientation: 'bottom'
+    });
+    });
+    </script>
+{% endblock %}
