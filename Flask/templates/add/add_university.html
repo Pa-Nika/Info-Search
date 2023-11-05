@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Добавить университет</h1>
+
+    <div class="container mt-3">
+    <form id="edit-form" method="post">
+        <input type="text" name="full_title" id="full_title" class="form-control" placeholder="Полное название университета"><br>
+        <input type="text" name="small_title" id="small_title" class="form-control" placeholder="Сокращенное название университета"><br>
+        <input type="text" name="date" id="date" class="form-control" placeholder="Дата основания"><br>
+
+        <button type="submit" class="btn btn-success">Добавить университет</button>
+        <a href="/university/history" class="btn btn-primary my-2">К списку университетов</a>
+    </form><br>
+    </div>
+
+    <script>
+$(document).ready(function() {
+    $('#date').datepicker({
+        format: 'dd.mm.yyyy',
+        autoclose: true,
+        orientation: 'bottom'
+    });
+});
+    </script>
+{% endblock %}

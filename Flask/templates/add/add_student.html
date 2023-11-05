@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Добавить студента</h1>
+
+    <div class="container mt-3">
+    <form id="edit-form" method="post">
+        <input type="text" name="name" id="name" class="form-control" placeholder="ФИО студента"><br>
+        <input type="text" name="birthday" id="birthday" class="form-control" placeholder="Дата рождения"><br>
+        <input type="text" name="year" id="year" class="form-control" placeholder="Год поступления"><br>
+        <select name="university" id="university" class="form-control">
+            {% for university in universities %}
+                <option value="{{ university.id }}">{{ university.small_title }}</option>
+            {% endfor %}
+        </select><br>
+
+
+        <button type="submit" class="btn btn-success">Добавить студента</button>
+        <a href="/student/history" class="btn btn-primary my-2">К списку студентов</a>
+    </form><br>
+    </div>
+
+    <script>
+    $(function() {
+        $('input[name="birthday"]').datepicker({
+            format: 'dd.mm.yyyy',
+            autoclose: true,
+            orientation: 'bottom'
+        });
+    });
+    </script>
+
+    <script>
+      $(function() {
+        $("#id_university").selectmenu();
+      });
+    </script>
+{% endblock %}

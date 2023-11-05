@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Вы уверены, что хотите удалить студента из списка?</h1>
+
+    <div class="container mt-3">
+    <form id="edit-form" method="post">
+        {% csrf_token %}
+
+        <button type="submit" class="btn btn-danger">Удалить студента</button>
+    </form><br>
+    </div>
+
+    <script>
+    $(function() {
+    $('input[name="date"]').datepicker({
+        format: 'dd.mm.yyyy',
+        autoclose: true,
+        orientation: 'bottom'
+    });
+    });
+    </script>
+{% endblock %}

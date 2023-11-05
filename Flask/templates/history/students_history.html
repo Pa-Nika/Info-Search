@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="py-5 text-center">
+        <h1>История загрузок студентов</h1>
+        {% if students %}
+            <table class="table table-hover table-sm mt-5" id="history-list">
+
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col" class="text-center">Имя</th>
+                    <th scope="col" class="text-center">Дата рождения</th>
+                    <th scope="col" class="text-center">Университет</th>
+                    <th scope="col" class="text-center">Год поступления</th>
+                    <th scope="col" class="text-center"></th>
+                    <th scope="col" class="text-center"></th>
+                </tr>
+                </thead>
+                    {% for el in  students %}
+                        <tr>
+                            <th scope="row">{{ el.id }}</th>
+                            <td class="text-center">{{ el.name }}</td>
+                            <td class="text-center">{{ el.birthday.strftime('%d.%m.%Y')}}</td>
+                            <td class="text-center">{{ el.university.small_title }}</td>
+                            <td class="text-center">{{ el.year }}</td>
+                            <td>
+                                <button class="btn btn-outline-primary rounded-circle p-2 lh-1 btn-icon" type="button">
+                                    <a href="/edit/student/{{ el.id }}">
+                                        <i class="fa fa-pencil text-center"></i>
+                                    </a>
+                                <span class="visually-hidden">Dismiss</span>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-danger rounded-circle p-2 lh-1 btn-icon" type="submit">
+                                    <a href="/delete/student/{{ el.id }}" style="color: inherit; text-decoration: none;">
+                                        <i class="fa fa-trash text-center"></i>
+                                    </a>
+                                    <span class="visually-hidden">Dismiss</span>
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+            </table>
+        {% else %}
+            <p1>Пусто...</p1>
+        {% endif %}
+    </div>
+{% endblock %}

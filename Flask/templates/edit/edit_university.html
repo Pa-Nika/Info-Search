@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Изменить университет</h1>
+
+<div class="container mt-3">
+    <form id="edit-form" method="post">
+        <input type="text" name="full_title" id="full_title" class="form-control"  value="{{ university.full_title }}" placeholder="Полное название университета"><br>
+        <input type="text" name="small_title" id="small_title" class="form-control" value="{{ university.small_title }}" placeholder="Сокращенное название университета"><br>
+        <input type="text" name="date" id="date" class="form-control" value="{{ university.date.strftime('%d.%m.%Y') }}" placeholder="Дата основания"><br>
+
+        <button type="submit" class="btn btn-success">Изменить университет</button>
+    </form><br>
+    </div>
+
+    <script>
+    $(function() {
+    $('input[name="date"]').datepicker({
+        format: 'dd.mm.yyyy',
+        autoclose: true,
+        orientation: 'bottom'
+    });
+    });
+    </script>
+{% endblock %}
