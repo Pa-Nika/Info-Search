@@ -19,21 +19,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom text-bg-dark p-4">
-      <div class="col-md-3 mb-2 mb-md-0">
-      </div>
-
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/">Главная</a>
+        </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDarkDropdownMenuLink" role="button"
                data-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                 Университеты
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-{#                <li><a class="dropdown-item" href="{% url 'univer_history' %}">Список</a></li>#}
                 <li><a class="dropdown-item" href="/university/history">Список</a></li>
-{#                <li><a class="dropdown-item" href="{% url 'add_university' %}">Добавить</a></li>#}
                 <li><a class="dropdown-item" href="/add/university">Добавить</a></li>
             </ul>
           </li>
@@ -44,9 +42,7 @@
                 Студенты
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-{#                <li><a class="dropdown-item" href="{% url 'student_history' %}">Список</a></li>#}
                 <li><a class="dropdown-item" href="/student/history">Список</a></li>
-{#                <li><a class="dropdown-item" href="{% url 'add_student' %}">Добавить</a></li>#}
                 <li><a class="dropdown-item" href="/add/student">Добавить</a></li>
             </ul>
           </li>
@@ -55,7 +51,11 @@
       <div class="col-md-3 text-end">
 
       </div>
-
+        <div class="col-md-3 text-end">
+            <a type="button"  href="/logout" class="btn btn-outline-primary me-2 text-white">Logout</a>
+            <a type="button"  href="/login" class="btn btn-outline-primary me-2 text-white">Login</a>
+            <a type="button"  href="/register" class="btn btn-primary">Sign-up</a>
+        </div>
     </header>
 
     <div class="b-example-divider"></div>
