@@ -79,15 +79,15 @@ def write_file():
 
 if __name__ == "__main__":
     n = 0
-    while n <= 0:
-        try:
-            n = int(input("Введите число n для треугольника Паскаля: "))
-            if n <= 0:
-                raise ValueError("Число должно быть положительным.")
-            break
-        except ValueError:
-            print("Введите целое положительное число.")
-    pascal()
+    # while n <= 0:
+    #     try:
+    #         n = int(input("Введите число n для треугольника Паскаля: "))
+    #         if n <= 0:
+    #             raise ValueError("Число должно быть положительным.")
+    #         break
+    #     except ValueError:
+    #         print("Введите целое положительное число.")
+    # pascal()
 
     print("Введите скобочную последовательность:")
     sequence = str(input())
